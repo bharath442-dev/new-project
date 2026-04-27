@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 3.8)
-
 set(This ExampleTests)
 
 set(Sources
@@ -7,9 +5,11 @@ set(Sources
 )
 
 add_executable(${This} ${Sources})
-target_link_options(${This} PRIVATE -mconsole)
 
 target_link_libraries(${This} PRIVATE Example)
+
+# 🔥 ADD THIS LINE (IMPORTANT)
+target_link_options(${This} PRIVATE -mconsole)
 
 add_test(
     NAME ${This}

@@ -7,6 +7,7 @@ set(Sources
 )
 
 add_executable(${This} ${Sources})
+target_link_options(${This} PRIVATE -mconsole)
 
 target_link_libraries(${This} PRIVATE Example)
 

@@ -10,8 +10,8 @@ add_executable(${This} ${Sources})
 
 target_link_libraries(${This} PRIVATE Example)
 
-# 🔥 FORCE CONSOLE MODE (THIS FIXES YOUR ERROR)
-set_target_properties(${This} PROPERTIES LINK_FLAGS "-mconsole")
+# 🔥 ADD THIS LINE (IMPORTANT FIX)
+target_include_directories(${This} PRIVATE ${CMAKE_SOURCE_DIR})
 
 add_test(
     NAME ${This}

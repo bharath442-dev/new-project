@@ -6,14 +6,15 @@ set(Sources
     ExampleTests.cpp
 )
 
+# 🔥 IMPORTANT: use console explicitly
 add_executable(${This} ${Sources})
 
 target_link_libraries(${This} PRIVATE Example)
 
 target_include_directories(${This} PRIVATE ${CMAKE_SOURCE_DIR})
 
-# 🔥 MUST BE PRESENT
-set_target_properties(${This} PROPERTIES LINK_FLAGS "-mconsole")
+# 🔥 FORCE console subsystem (THIS IS THE KEY FIX)
+target_link_options(${This} PRIVATE -Wl,-subsystem,console)
 
 add_test(
     NAME ${This}
